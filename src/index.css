@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 226.67deg 44.26% 23.93%;
+    --color-primary-hover: 226.67deg 60.38% 29.64%;
+    --color-secondary: 75.39deg 69.72% 42.75%;
+    --color-secondary-hover: 75.39deg 69.72% 42.75%;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.root-container {
+  height: 100%;
+}
+
+body::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 3px;
+
+  @include tablet {
+    width: 6px;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+  visibility: hidden;
+}
+
+*:hover::-webkit-scrollbar-thumb {
+  visibility: visible;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #999999;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b3b3b3;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.field {
+  @apply mb-2.5;
+}
+.border-0 {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.hidden-border:focus {
+  border: 0 !important;
+  outline: none;
+  box-shadow: none;
+}
