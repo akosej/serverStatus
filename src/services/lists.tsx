@@ -31,8 +31,8 @@ interface Server {
 // }
 
 const ListServer = () => {
-    const { serverList} = useServerList();
-    
+    const { serverList } = useServerList();
+
     // const footer = (
     //     <>
     //         <Button label="Save" icon="pi pi-check" />
@@ -58,7 +58,7 @@ const ListServer = () => {
             </div>
         </a>
     );
-    
+
     return (
         <div className="flex rounded-box place-items-center">
             {serverList?.server.map((server: Server) => (
