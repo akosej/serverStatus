@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
-import { Rating } from 'primereact/rating';
+import React, { useState } from 'react';
 import { Tag } from 'primereact/tag';
 import { Button } from 'primereact/button';
 import { useServerList } from "./hooks";
 import { Card } from 'primereact/card';
-import { Knob } from 'primereact/knob';
-import { Carousel } from 'primereact/carousel';
-import { Badge } from 'primereact/badge';
-import { ProgressBar } from 'primereact/progressbar';
+
 import { classNames } from "primereact/utils";
 interface Container {
     type: string;
@@ -31,21 +26,20 @@ interface Server {
     containers: Container[];
 }
 
-interface ServerList {
-    server: Server[];
-}
+// interface ServerList {
+//     server: Server[];
+// }
 
 const ListServer = () => {
-    const { serverList, isLoading } = useServerList();
-    const [layout, setLayout] = useState('grid');
+    const { serverList} = useServerList();
+    
+    // const footer = (
+    //     <>
+    //         <Button label="Save" icon="pi pi-check" />
+    //         <Button label="Cancel" severity="secondary" icon="pi pi-times" style={{ marginLeft: '0.5em' }} />
+    //     </>
+    // );
 
-
-    const footer = (
-        <>
-            <Button label="Save" icon="pi pi-check" />
-            <Button label="Cancel" severity="secondary" icon="pi pi-times" style={{ marginLeft: '0.5em' }} />
-        </>
-    );
     const subTitle = (server: Server) => (
         <a href={`https://${server.ipaddress}:8006/`} target='_blank'>
             <div className="stats shadow">
@@ -64,13 +58,7 @@ const ListServer = () => {
             </div>
         </a>
     );
-    const valueTemplate = (value: string) => {
-        return (
-            <React.Fragment>
-                {Math.round(parseFloat(value))}/<b>100</b>
-            </React.Fragment>
-        );
-    };
+    
     return (
         <div className="flex rounded-box place-items-center">
             {serverList?.server.map((server: Server) => (
@@ -105,11 +93,8 @@ const ListServer = () => {
                         </Card>
                     </div>
                     <div className="divider divider-horizontal"></div>
-
                 </div>
-
             ))}
-            {/* <DataView value={serverList?.server} itemTemplate={itemTemplate} layout="grid" header={header()} /> */}
         </div>
     );
 }
